@@ -1,19 +1,16 @@
 CROSS_COMPILE ?=
-SRC_FOLDER = ./
 
-CC      := $(CROSS_COMPILE)gcc
-CXX     := $(CROSS_COMPILE)g++
-LD      := $(CROSS_COMPILE)ld
-OBJCOPY := $(CROSS_COMPILE)objcopy
+CC := $(CROSS_COMPILE)gcc
 
-TARGET = $(SRC_FOLDER)/writer
+TARGET := writer
+SRC := writer.c
 
 all: $(TARGET)
 
-$(TARGET): $(SRC_FOLDER)/writer.c
-	$(CC) $(SRC_FOLDER)/writer.c -o $(TARGET)
+$(TARGET): $(SRC)
+	$(CC) $(SRC) -o $(TARGET)
 
-clean: 
+clean:
 	rm -f $(TARGET) *.o
 
 .PHONY: all clean
